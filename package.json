@@ -1,0 +1,87 @@
+{
+    "name": "mandc-starter",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "start": "vite --open",
+        "build": "pnpm clean && vite build && pnpm partytown copylib src/dist/~partytown",
+        "debug-build": "vite build --debug && vite-bundle-visualizer",
+        "preview": "vite preview --open --host",
+        "clean": "rimraf dist",
+        "lint:scripts": "eslint . --c *.ts --fix",
+        "lint:styles": "stylelint \"**/*.{sass,scss}\" --fix",
+        "format:scripts": "prettier \"**/*.{js,ts}\" --write",
+        "format:styles": "stylelint \"**/*.{sass,scss}\" --fix",
+        "format": "pnpm lint:scripts && pnpm lint:styles && pnpm format:scripts && pnpm format:styles",
+        "precommit": "pnpm format && tsc && git add .",
+        "prepare": "husky"
+    },
+    "lint-staged": {
+        "./src/**/*.{js,jsx,ts,tsx}": [
+            "pnpm format",
+            "git add"
+        ]
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "packageManager": "pnpm@10.9.0",
+    "devDependencies": {
+        "@types/imagesloaded": "^4.1.7",
+        "@types/jsdom": "^21.1.7",
+        "@types/node": "^24.0.10",
+        "@typescript-eslint/eslint-plugin": "^8.35.1",
+        "@typescript-eslint/parser": "^8.35.1",
+        "autoprefixer": "^10.4.21",
+        "cssnano": "^7.0.7",
+        "eslint": "^9.30.1",
+        "eslint-config-prettier": "^10.1.5",
+        "eslint-plugin-prettier": "^5.5.1",
+        "fast-glob": "^3.3.3",
+        "husky": "^9.1.7",
+        "jiti": "^2.4.2",
+        "lint-staged": "^16.1.2",
+        "postcss": "^8.5.6",
+        "postcss-preset-env": "^10.2.4",
+        "postcss-scss": "^4.0.9",
+        "prettier": "^3.6.2",
+        "rimraf": "^6.0.1",
+        "sass": "^1.89.2",
+        "stylelint": "^16.21.1",
+        "stylelint-config-recommended": "^16.0.0",
+        "stylelint-config-sass-guidelines": "^12.1.0",
+        "stylelint-order": "^7.0.0",
+        "stylelint-prettier": "^5.0.3",
+        "terser": "^5.43.1",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.8.3",
+        "unplugin-turbo-console": "^2.2.0",
+        "vite": "npm:rolldown-vite@latest",
+        "vite-bundle-analyzer": "^1.0.0",
+        "vite-bundle-visualizer": "^1.2.1",
+        "vite-plugin-checker": "^0.9.3",
+        "vite-plugin-compression2": "^2.2.0",
+        "vite-plugin-eslint": "^1.8.1",
+        "vite-plugin-glsl": "^1.5.1",
+        "vite-plugin-gltf": "^4.0.0",
+        "vite-plugin-qrcode": "^0.3.0",
+        "vite-plugin-sass-dts": "^1.3.31",
+        "vite-plugin-stylelint": "6.0.0"
+    },
+    "dependencies": {
+        "@qwik.dev/partytown": "^0.11.1",
+        "gsap": "^3.13.0",
+        "imagesloaded": "^5.0.0",
+        "lenis": "^1.3.4",
+        "simple-parallax-js": "^6.2.1",
+        "the-new-css-reset": "^1.11.3"
+    },
+    "pnpm": {
+        "overrides": {
+            "vite": "npm:rolldown-vite@latest"
+        }
+    }
+}

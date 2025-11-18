@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="view-transition" content="same-origin" />
+        <title>M&C Project Starter</title>
+
+        <!-- /These should be inlined in WP -->
+        <!-- <script type="module" src="../node_modules/@qwik.dev/partytown/lib/partytown.js"></script> -->
+        <link rel="stylesheet" href="./styles/critical.scss" />
+        <!-- / -->
+
+        <link rel="stylesheet" href="./styles/main.scss" />
+    </head>
+    <body>
+        <header class="header row">
+            <div class="header__bg"></div>
+            <nav class="header__nav col-2">
+                <ul class="header__nav__list">
+                    <li class="header__nav__item">
+                        <a href="#" class="header__nav__item__trigger btn btn--underline btn--dark"><p>London</p></a>
+                        <div class="header__nav__item__dropdown" data-lenis-prevent>
+                            <a href="#" class="header__nav__item__dropdown__back">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9" viewBox="0 0 11 9" fill="none">
+                                    <path d="M4.11861 8.77548L0.279234 4.93609C0.119676 4.77654 0.119675 4.5372 0.269261 4.38761L4.10864 0.54823C4.2682 0.388672 4.51751 0.398644 4.67707 0.558203L4.90644 0.787568C5.06599 0.947127 5.05602 1.19644 4.90644 1.34602L2.15405 4.09841L10.5807 4.08844C10.8001 4.08844 10.9796 4.26794 10.9796 4.48734L10.9796 4.8264C10.9796 5.04579 10.8001 5.22529 10.5807 5.22529L2.15405 5.21532L4.91641 7.97768C5.07597 8.13724 5.07597 8.37658 4.92638 8.52616L4.69702 8.75553C4.52748 8.92506 4.27817 8.93503 4.11861 8.77548Z" fill="#383230" />
+                                </svg>
+                                <p>Back</p>
+                            </a>
+                            <div class="header__nav__item__dropdown__content row">
+                                <div class="header__nav__item__dropdown__content__inner col-4 col-lg-12 col-sm-6"></div>
+                                <div class="header__nav__item__dropdown__content__inner col-4 col-lg-12 col-sm-6"></div>
+                                <div class="header__nav__item__dropdown__content__inner col-4 col-lg-12 col-sm-6"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="header__nav__item">
+                        <a href="#" class="header__nav__item__trigger btn btn--underline btn--dark"><p>Australia</p></a>
+                        <div class="header__nav__item__dropdown" data-lenis-prevent>
+                            <a href="#" class="header__nav__item__dropdown__back">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9" viewBox="0 0 11 9" fill="none">
+                                    <path d="M4.11861 8.77548L0.279234 4.93609C0.119676 4.77654 0.119675 4.5372 0.269261 4.38761L4.10864 0.54823C4.2682 0.388672 4.51751 0.398644 4.67707 0.558203L4.90644 0.787568C5.06599 0.947127 5.05602 1.19644 4.90644 1.34602L2.15405 4.09841L10.5807 4.08844C10.8001 4.08844 10.9796 4.26794 10.9796 4.48734L10.9796 4.8264C10.9796 5.04579 10.8001 5.22529 10.5807 5.22529L2.15405 5.21532L4.91641 7.97768C5.07597 8.13724 5.07597 8.37658 4.92638 8.52616L4.69702 8.75553C4.52748 8.92506 4.27817 8.93503 4.11861 8.77548Z" fill="#383230" />
+                                </svg>
+                                <p>Back</p>
+                            </a>
+                            <div class="header__nav__item__dropdown__content row">
+                                <div class="header__nav__item__dropdown__content__inner col-4 col-lg-12 col-sm-6"></div>
+                                <div class="header__nav__item__dropdown__content__inner col-4 col-lg-12 col-sm-6"></div>
+                                <div class="header__nav__item__dropdown__content__inner col-4 col-lg-12 col-sm-6"></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="menu-btn">
+                    <p>Menu</p>
+                </div>
+            </nav>
+
+            <a href="index.html" class="header__logo" aria-label="Go home">
+                <svg width="460" height="156" viewBox="0 0 460 156" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M0 153.389V2.511h34.053L79.63 119.65h2.096L127.409 2.51h33.947v150.878h-23.994V41.383h-2.095L91.575 153.389H69.886L26.194 41.383H24.1v112.006zm306.277-75.435C306.277 29.966 334.986 0 379.097 0c43.482 0 62.657 27.032 64.438 51.131v3.143h-24.518c-1.257-16.03-11.63-34.262-39.71-34.262-28.395 0-47.15 22.213-47.15 57.942s18.755 57.942 47.15 57.942c27.975 0 38.348-19.803 40.234-35.729h24.518v3.143c-2.41 23.784-21.165 52.598-64.962 52.598-44.111 0-72.82-29.966-72.82-77.954m-2.097 56.155v19.279h-17.393q-8.172 0-14.459-1.886-6.077-2.096-10.687-7.334l-5.658-6.287q-17.602 16.764-40.444 16.764-21.373 0-35.205-10.058-13.62-10.059-13.621-28.5 0-12.153 7.335-23.05 7.544-11.108 24.308-18.441-7.544-9.43-10.268-16.345-2.725-7.125-2.725-16.555 0-10.268 5.658-18.44 5.658-8.384 15.507-12.993 9.85-4.82 22.213-4.82 10.478 0 18.86 4.4 8.592 4.192 13.411 11.736 5.03 7.544 5.03 16.974 0 12.363-7.754 22.422-7.754 9.849-26.613 17.602l26.823 29.128 21.793-33.528h22.632l-31.852 47.359 6.706 7.334q2.724 3.144 5.448 4.191 2.724 1.048 6.706 1.048zM227.484 22.627q-8.592 0-14.04 5.238-5.45 5.24-5.449 13.202 0 6.705 2.515 11.945 2.724 5.238 9.639 12.992 23.89-10.059 23.89-26.823 0-7.334-4.611-11.944-4.4-4.61-11.944-4.61m-10.897 113.368q14.669 0 27.242-11.316l-34.367-37.51-.419-.419q-10.478 5.448-14.878 11.735-4.191 6.077-4.191 14.878 0 10.687 7.334 16.765 7.335 5.867 19.279 5.867M434.299 12.739q0-3.546 1.643-6.43 1.702-2.944 4.578-4.627T446.858 0q3.522 0 6.397 1.682 2.935 1.683 4.578 4.567 1.702 2.884 1.702 6.43 0 3.485-1.702 6.369-1.643 2.885-4.578 4.566-2.875 1.623-6.397 1.623-3.462 0-6.338-1.623a12.8 12.8 0 0 1-4.578-4.506q-1.643-2.884-1.643-6.37m22.243-.06q0-2.825-1.291-5.108a8.8 8.8 0 0 0-3.463-3.545q-2.171-1.322-4.93-1.322-2.7 0-4.93 1.322-2.171 1.262-3.462 3.605-1.233 2.283-1.233 5.108 0 2.764 1.233 5.047a9.9 9.9 0 0 0 3.462 3.545q2.23 1.262 4.93 1.262 2.759 0 4.93-1.262a9.2 9.2 0 0 0 3.463-3.605q1.291-2.283 1.291-5.048"
+                        fill="#ffffff"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M452.802 10.97v-.593l-.001-.01a4.94 4.94 0 0 0-1.503-3.21c-.953-.911-2.363-1.523-4.28-1.523-1.949 0-3.582.68-4.726 1.924-1.142 1.242-1.77 3.017-1.77 5.163s.628 3.92 1.77 5.163c1.144 1.244 2.777 1.924 4.726 1.924 1.936 0 3.345-.654 4.297-1.601a5.37 5.37 0 0 0 1.53-3.25l.002-.016v-.597h-2.666l-.032.273c-.075.648-.318 1.36-.802 1.903-.476.535-1.206.931-2.311.931-1.117 0-2.029-.443-2.668-1.239-.645-.802-1.031-1.987-1.031-3.491s.386-2.689 1.031-3.491c.639-.796 1.551-1.24 2.668-1.24 1.119 0 1.85.37 2.317.87.473.507.701 1.18.75 1.825l.022.285zm-.263 3.683h-2.083c-.16 1.385-1.042 3.107-3.419 3.107h-.001c2.377 0 3.259-1.723 3.419-3.108zm-8.462 4.196c-2.032-1.02-3.247-3.184-3.247-6.128 0-4.173 2.44-6.779 6.188-6.779 1.172 0 2.136.237 2.911.626-.775-.389-1.739-.625-2.91-.625-3.748 0-6.188 2.606-6.188 6.779 0 2.944 1.214 5.107 3.246 6.127m6.334-8.187c-.076-.982-.535-2.058-1.634-2.609 1.098.551 1.557 1.628 1.633 2.609"
+                        fill="#ffffff"
+                    />
+                </svg>
+            </a>
+
+            <div class="col-8 col-lg-7 col-md-4 col-sm-2"></div>
+            <div class="col-2 col-lg-3 col-md-2 col-sm-2">
+                <a href="https://github.com/mallardandclaret/mandc-starter" class="btn contact-btn">
+                    <p>Get Started</p>
+                </a>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero row gutter">
+                <div class="hero__bg gradient">
+                    <img src="./assets/images/hero.jpg" loading="eager" alt="" data-parallax="lg" />
+                </div>
+                <div class="hero__content col-6 col-lg-8 col-md-12">
+                    <h1>M&C Project Starter</h1>
+                    <p>This is a basic codebase for a typical M&C project boilerplate with the most basic module and files that are usally repeted in most M&C previous projects. Note that this app might need adding/removing modules and files based on each project requirments. Here you can find the <a href="https://github.com/mallardandclaret/mandc-starter" class="link link--white">Github repo</a>.</p>
+                </div>
+            </section>
+        </main>
+
+        <script src="./scripts/main.ts" type="module"></script>
+
+        <script src="https://vercel.live/_next-live/feedback/feedback.js" data-explicit-opt-in="true" data-owner-id="team_kxhBfLtYcEmHCMqk3J0kL3NN" data-project-id="prj_fYhv1lpZ0sD407BRUVWki0fLO6Sq" data-branch="staging"></script>
+    </body>
+</html>

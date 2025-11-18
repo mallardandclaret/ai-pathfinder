@@ -1,0 +1,84 @@
+@use "@forwards" as *;
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
+    }
+}
+
+html,
+body {
+    background-color: $white;
+    color: $black;
+    display: block;
+    overscroll-behavior: none;
+    scroll-behavior: auto;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+.main {
+    background-color: $white;
+    display: block;
+    min-height: 100svh;
+    position: relative;
+    width: 100%;
+}
+
+section {
+    background-color: $white;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    z-index: z("section");
+}
+
+*::selection {
+    background-color: $black;
+    color: $white;
+}
+
+a,
+button {
+    cursor: pointer;
+    width: fit-content;
+}
+
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    box-shadow: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+div.grecaptcha-badge {
+    display: none !important;
+}
+
+// Initially set transform for parallax images equal to parallax scale
+[data-parallax="lg"] {
+    transform: translate3d(0, -1px, 0) scale(1.15);
+}
+
+[data-parallax="sm"] {
+    transform: translate3d(0, -1px, 0) scale(1.07);
+}
+
+.simpleParallax {
+    @include abs-background;
+}

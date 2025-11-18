@@ -1,0 +1,30 @@
+@use "@forwards" as *;
+
+.hero {
+    color: $white;
+    height: 100svh;
+    position: relative;
+    width: 100vw;
+
+    &__bg {
+        height: 100%;
+        inset: 0;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+
+        & img {
+            @include abs-background;
+        }
+    }
+
+    &__content {
+        padding: rem(80) var(--gutter);
+        @include flex(flex-end, flex-start, 0, column);
+        @include max-prop(gap, rem(20), vw(20));
+
+        & > .btn {
+            @include max-prop(margin-bottom, rem(10), vw(20));
+        }
+    }
+}

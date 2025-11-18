@@ -1,0 +1,41 @@
+@use "@forwards" as *;
+
+$colors: (
+    "white": $white,
+    "black": $black,
+    "red": $red,
+);
+
+:root {
+    @each $name, $value in $colors {
+        --#{$name}: #{$value};
+    }
+}
+
+.bg {
+    @each $name, $value in $colors {
+        &--#{$name} {
+            background-color: $value;
+        }
+    }
+}
+
+.text {
+    @each $name, $value in $colors {
+        &--#{$name} {
+            color: $value;
+        }
+    }
+}
+
+.arrow {
+    @each $name, $value in $colors {
+        &--#{$name} {
+            background-color: $value;
+
+            & .shape path {
+                fill: $value;
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+@mixin hover {
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            @content;
+        }
+    }
+
+    &:focus-visible {
+        @content;
+    }
+}
+
+@mixin abs-center {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin abs-background {
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+@mixin fullh {
+    height: calc(100vh + 1px);
+    height: calc(100svh + 1px);
+}
+
+@mixin truncate-lines($lines: 1) {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

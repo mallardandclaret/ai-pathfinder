@@ -1,0 +1,69 @@
+import Lenis from "lenis";
+import { initParallax } from "./parallax";
+
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import { varGutter, prefersReducedMotion } from "../utils/variables";
+
+export let lenis: Lenis;
+
+export function initScroller() {
+    lenis = new Lenis({
+        duration: prefersReducedMotion ? 0 : 1,
+        easing: prefersReducedMotion ? t => t : t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: !prefersReducedMotion,
+        wheelMultiplier: 1,
+        infinite: false,
+        prevent: node => {
+            if (node.nodeName === "VERCEL-LIVE-FEEDBACK") return true;
+            return false;
+        },
+    });
+
+    if (prefersReducedMotion) {
+        gsap.globalTimeline.timeScale(9999);
+    }
+
+    lenis.on("scroll", ScrollTrigger.update);
+    gsap.ticker.lagSmoothing(0);
+    gsap.ticker.add((time: number) => lenis.raf(time * 1000));
+
+    initJumpLinksScrollTo();
+    checkInitialHash();
+    initParallax();
+}
+
+function initJumpLinksScrollTo() {
+    const jumpLinks = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]');
+
+    jumpLinks.forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            if (location.pathname.replace(/^\//, "") === anchor.pathname.replace(/^\//, "") && location.hostname === anchor.hostname) {
+                const targetId = anchor.hash;
+                const target = document.querySelector(targetId) as HTMLElement;
+
+                if (target) {
+                    lenis.scrollTo(target, {
+                        offset: -varGutter,
+                    });
+                    history.pushState(null, "", targetId);
+                }
+            }
+        });
+    });
+}
+
+function checkInitialHash() {
+    const hash = window.location.hash;
+    if (hash) {
+        const target = document.querySelector<HTMLElement>(hash);
+        if (target) {
+            lenis.scrollTo(target, {
+                offset: -varGutter,
+            });
+        }
+    }
+}

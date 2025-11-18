@@ -1,0 +1,47 @@
+@use "@forwards" as *;
+
+@include font-face("FKGroteskNeue-Regular", "FKGroteskNeue-Regular", 400);
+@include font-face("FKGroteskNeue-Regular", "FKGroteskNeue-Medium", 700);
+
+$title-font: "FKGroteskNeue-Regular", helvetica, arial;
+$body-font: helvetica, arial;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $title-font;
+    font-style: normal;
+    font-weight: 400;
+}
+
+body,
+p,
+ul,
+ol,
+input,
+button,
+a,
+select,
+textarea,
+label,
+* {
+    font-family: $body-font;
+    font-style: normal;
+    font-weight: 400;
+}
+
+strong,
+b,
+.bold {
+    font-family: inherit;
+    font-weight: 500;
+    letter-spacing: inherit;
+    line-height: inherit;
+
+    & span {
+        font-weight: 500;
+    }
+}

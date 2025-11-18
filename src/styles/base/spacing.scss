@@ -1,0 +1,7 @@
+@use "@forwards" as *;
+
+:root {
+    @include max-prop(--header-height, rem($mobile-header-height), vw($header-height));
+    @include max-prop(--gutter, rem($mobile-gutter), vw($gutter));
+    @include max-prop(--gap, rem($mobile-gap), vw($gap));
+}
