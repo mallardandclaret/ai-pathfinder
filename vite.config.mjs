@@ -15,7 +15,7 @@ import sassDts from "vite-plugin-sass-dts";
 // import { draco, prune, textureCompress, dedup } from "@gltf-transform/functions";
 // import glsl from "vite-plugin-glsl";
 
-const THEME_NAME = "mandc-starter";
+const THEME_NAME = "ai-pathfinder";
 
 const IS_DHQ = !!process.env.DEPLOY_PROJECT;
 const ROOT = path.join(__dirname, "src");
@@ -86,7 +86,7 @@ export default defineConfig(({ mode }) => {
                     maincss: path.join(ROOT, "/styles/main.scss"),
                     critical: path.join(ROOT, "styles/critical.scss"),
                     script: path.join(ROOT, "/scripts/main.ts"),
-                    
+
                     ...htmlFiles,
                 },
                 output: {
@@ -95,7 +95,7 @@ export default defineConfig(({ mode }) => {
                 },
             },
             optimizeDeps: {
-                include: ["gsap", "lenis", "imagesloaded", "simple-parallax-js/vanilla"],
+                include: ["gsap", "lenis", "imagesloaded"],
             },
         },
     };

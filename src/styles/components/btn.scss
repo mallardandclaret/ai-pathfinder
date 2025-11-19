@@ -1,93 +1,70 @@
 @use "@forwards" as *;
 
 .btn {
-    background-color: $red;
-    color: $black;
+    background-color: $cobalt-blue;
+    border: rem(1) solid $cobalt-blue;
+    color: $white;
     flex-wrap: nowrap;
     height: fit-content;
+    text-align: center;
     transition: $trans;
     white-space: nowrap;
     width: fit-content;
+    @include br;
     @include flex(center, center, 0, row);
-    @include max-prop(padding, rem(8), vw(8));
-    @include max-prop(padding-left, rem(15), vw(15));
-    @include max-prop(padding-right, rem(15), vw(15));
+    @include max-prop(padding, rem(14), vw(14));
+    @include max-prop(padding-left, rem(25), vw(25));
+    @include max-prop(padding-right, rem(25), vw(25));
     @include max-prop(gap, rem(15), vw(15));
-    @include max-prop(border-radius, rem(50), vw(50));
 
-    & > svg {
-        @include max-prop(width, rem(6), vw(6));
-        @include max-prop(height, rem(6), vw(6));
+    @include component-hover {
+        background-color: $royal-navy;
+        border-color: $royal-navy;
+    }
 
-        path {
-            fill: $white;
+    &--alt {
+        background-color: transparent;
+        border-color: $soft-sky;
+        color: $soft-sky;
+
+        @include component-hover {
+            background-color: $soft-sky;
+            border-color: $soft-sky;
+            color: $deep-space-blue;
+        }
+
+        &--white {
+            border-color: $white;
+            color: $white;
+
+            @include component-hover {
+                background-color: $white;
+                border-color: $white;
+                color: $deep-space-blue;
+            }
         }
     }
 
     &--light {
-        background-color: $white;
-        border: 1px solid $black;
-        color: $black;
+        background-color: $soft-sky;
+        border-color: $soft-sky;
 
-        & > svg path {
-            fill: $black;
+        @include component-hover {
+            background-color: $cobalt-blue;
+            border-color: $cobalt-blue;
         }
     }
 
-    &--dark {
-        background-color: $black;
-        color: $white;
-
-        & > svg path {
-            fill: $white;
-        }
+    &--icon {
+        @include max-prop(padding, rem(15), vw(15));
     }
 
-    &--underline {
-        background-color: transparent;
-        height: auto;
-        padding: 0;
-        position: relative;
-
-        &::after {
-            background-color: $black;
-            bottom: -0.2rem;
-            content: "";
-            height: 1px;
-            left: 0;
-            position: absolute;
-            transform-origin: 100%;
-            transition: transform 0.4s $ease-quad-out;
-            width: 100%;
-        }
-
-        &.btn--light {
-            &::after {
-                background-color: $black;
-            }
-        }
-
-        &.btn--dark {
-            &::after {
-                background-color: $white;
-            }
-        }
-
-        @include hover {
-            filter: unset !important;
-
-            &::after {
-                transform: scaleX(0);
-                transition: transform 0.4s $ease-quad-out;
-            }
-        }
-    }
-
-    @include hover {
-        filter: brightness(0.9);
-
-        & > svg path {
-            animation: arrow-anim-top-right 0.4s $ease-quad-out forwards;
+    &--linkedin {
+        &::before {
+            content: url("/assets/icons/linkedin.svg");
+            display: inline-block;
+            height: rem(19);
+            width: rem(18);
         }
     }
 }

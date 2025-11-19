@@ -19,8 +19,8 @@
 
 html,
 body {
-    background-color: $white;
-    color: $black;
+    background-color: $midnight-indigo;
+    color: $midnight-indigo;
     display: block;
     overscroll-behavior: none;
     scroll-behavior: auto;
@@ -31,7 +31,6 @@ html {
 }
 
 .main {
-    background-color: $white;
     display: block;
     min-height: 100svh;
     position: relative;
@@ -39,7 +38,7 @@ html {
 }
 
 section {
-    background-color: $white;
+    background-color: transparent;
     max-width: 100%;
     position: relative;
     width: 100%;
@@ -47,7 +46,7 @@ section {
 }
 
 *::selection {
-    background-color: $black;
+    background-color: $midnight-indigo;
     color: $white;
 }
 
@@ -68,6 +67,20 @@ textarea:focus {
 
 div.grecaptcha-badge {
     display: none !important;
+}
+
+.show {
+    &-desktop {
+        @include below("sm") {
+            display: none !important;
+        }
+    }
+
+    &-mobile {
+        @include above("sm") {
+            display: none !important;
+        }
+    }
 }
 
 // Initially set transform for parallax images equal to parallax scale

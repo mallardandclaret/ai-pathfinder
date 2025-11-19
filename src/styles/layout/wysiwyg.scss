@@ -9,7 +9,7 @@
         @include max-prop(padding-left, rem(16), vw(16));
 
         & li::marker {
-            color: $black;
+            color: $midnight-indigo;
         }
     }
 

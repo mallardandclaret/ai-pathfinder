@@ -1,3 +1,4 @@
+import gsap from "gsap";
 import { inner, isTouchDevice } from "./variables";
 
 export const mouse = {
@@ -32,6 +33,8 @@ function mouseMove(e: MouseEvent) {
 
     mouse.movementX = e.movementX;
     mouse.movementY = e.movementY;
+
+    gsap.set(":root", { "--mouse-x": mouse.x + "px", "--mouse-y": mouse.y + "px" });
 }
 
 export function initMouse() {

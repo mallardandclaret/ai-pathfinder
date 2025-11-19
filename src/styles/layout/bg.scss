@@ -1,0 +1,13 @@
+@use "@forwards" as *;
+
+.bg {
+    @include max-prop(padding, rem(10), rem(10));
+
+    @include below("md") {
+        padding: 0;
+    }
+
+    & > section {
+        @include br;
+    }
+}

@@ -18,15 +18,16 @@ $responsive-config: (
     ),
     md: (
         breakpoint: "md",
-        columns: 8,
+        columns: 12,
     ),
     sm: (
         breakpoint: "sm",
-        columns: 6,
+        columns: 12,
     ),
 );
 
 $columns: ();
+
 @each $key, $value in $responsive-config {
     $columns: map.merge(
         $columns,
@@ -38,7 +39,8 @@ $columns: ();
 
 .row {
     display: grid;
-    grid-gap: map.get($grid-config, gap);
+    grid-column-gap: map.get($grid-config, gap);
+    grid-row-gap: calc(map.get($grid-config, gap) * 1.5);
     grid-template-columns: repeat(#{map.get($grid-config, columns)}, minmax(0, 1fr));
     max-width: 100%;
     padding-left: map.get($grid-config, gutter);
@@ -64,23 +66,41 @@ $columns: ();
     }
 
     &.padded {
-        padding-bottom: rem(120);
-        padding-top: rem(120);
+        @include max-prop(padding-top, rem(60), vw(100));
+        @include max-prop(padding-bottom, rem(60), vw(100));
+    }
+
+    &.equal-gap {
+        grid-column-gap: map.get($grid-config, gap);
+        grid-row-gap: map.get($grid-config, gap);
+    }
+
+    &.half-gap {
+        grid-column-gap: calc(map.get($grid-config, gap) / 2);
+
+        &.equal-gap {
+            grid-row-gap: calc(map.get($grid-config, gap) / 2);
+        }
     }
 
     &.no-gap {
-        gap: 0;
+        grid-column-gap: 0;
     }
 
     &.no-gutter {
         padding: 0;
+    }
+
+    &.half-gutter {
+        padding-left: calc(map.get($grid-config, gutter) / 2);
+        padding-right: calc(map.get($grid-config, gutter) / 2);
     }
 }
 
 .col {
     @for $i from 0 through map.get($grid-config, columns) {
         &-#{$i} {
-            @if $i == 0 {
+            @if $i ==0 {
                 display: none;
             } @else {
                 grid-column: span #{$i};
@@ -102,7 +122,7 @@ $columns: ();
     @for $i from 0 through $value {
         .col-#{$key}-#{$i} {
             @include below($key) {
-                @if $i == 0 {
+                @if $i ==0 {
                     display: none;
                 } @else {
                     display: block;

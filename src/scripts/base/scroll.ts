@@ -1,5 +1,4 @@
 import Lenis from "lenis";
-import { initParallax } from "./parallax";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -25,13 +24,19 @@ export function initScroller() {
         gsap.globalTimeline.timeScale(9999);
     }
 
-    lenis.on("scroll", ScrollTrigger.update);
+    let prevScrollDirection = 0;
+    lenis.on("scroll", e => {
+        ScrollTrigger.update();
+        if (e.direction !== 0 && e.direction !== prevScrollDirection) {
+            gsap.set(":root", { "--scroll-direction": Math.max(e.direction, 0) });
+            prevScrollDirection = e.direction;
+        }
+    });
     gsap.ticker.lagSmoothing(0);
     gsap.ticker.add((time: number) => lenis.raf(time * 1000));
 
     initJumpLinksScrollTo();
     checkInitialHash();
-    initParallax();
 }
 
 function initJumpLinksScrollTo() {

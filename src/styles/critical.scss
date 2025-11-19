@@ -1,6 +1,7 @@
 @use "the-new-css-reset/css/reset.css";
 
 // Base
+@use "base/loader";
 @use "base/transition";
 @use "base/color-classes";
 @use "base/text-styles";
@@ -8,7 +9,6 @@
 @use "base/fonts";
 @use "base/typography";
 @use "base/spacing";
-@use "base/gradient";
 
 // Layout
 @use "layout/grid";
@@ -16,11 +16,19 @@
 @use "layout/header";
 @use "layout/spacer";
 @use "layout/wysiwyg";
+@use "layout/bg";
 
 // Components
 @use "components/btn";
 @use "components/link";
-@use "components/arrow-anim";
+@use "components/text";
+@use "components/btn-group";
+@use "components/card";
+@use "components/two-tone";
+@use "components/label";
+@use "components/logo";
+@use "components/hamburger";
+@use "components/marquee";
 
 // Modules
 @use "modules/hero";

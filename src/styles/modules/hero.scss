@@ -1,30 +1,38 @@
 @use "@forwards" as *;
 
 .hero {
-    color: $white;
-    height: 100svh;
-    position: relative;
-    width: 100vw;
+    // height: 80svh;
+    // margin-top: var(--header-height);
+    align-items: center;
+    @include max-prop(padding-top, rem(220), vw(220));
+    @include max-prop(padding-bottom, rem(130), vw(130));
 
-    &__bg {
-        height: 100%;
-        inset: 0;
-        position: absolute;
-        width: 100%;
-        z-index: -1;
-
-        & img {
-            @include abs-background;
-        }
+    &--home {
+        height: 100svh;
+        @include max-prop(padding-top, rem(140), vw(140));
     }
 
-    &__content {
-        padding: rem(80) var(--gutter);
-        @include flex(flex-end, flex-start, 0, column);
-        @include max-prop(gap, rem(20), vw(20));
+    &__img {
+        @include flex(center, center, 0, row);
 
-        & > .btn {
-            @include max-prop(margin-bottom, rem(10), vw(20));
+        @include below("md") {
+            bottom: 0;
+            max-width: 60%;
+            opacity: 0.3;
+            position: absolute;
+            right: 0;
+            z-index: -1;
+        }
+
+        @include below("sm") {
+            max-width: 75%;
+        }
+
+        & svg,
+        & img {
+            height: auto;
+            object-fit: contain;
+            width: 90%;
         }
     }
 }

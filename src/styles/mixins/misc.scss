@@ -10,6 +10,22 @@
     }
 }
 
+@mixin component-hover {
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            @content;
+        }
+    }
+
+    &.hover {
+        @content;
+    }
+
+    &:focus-visible {
+        @content;
+    }
+}
+
 @mixin abs-center {
     left: 50%;
     position: absolute;
@@ -38,4 +54,11 @@
     -webkit-line-clamp: $lines;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+$br: 6px;
+
+@mixin br {
+    border-radius: $br;
+    overflow: hidden;
 }

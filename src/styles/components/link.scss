@@ -1,24 +1,14 @@
 @use "@forwards" as *;
 
 .link {
-    background: linear-gradient(to right, $black, $black);
-    background-position: 100% 100%;
-    background-repeat: no-repeat;
-    background-size: 100% 1px;
-    color: $black;
-    text-decoration: none;
-    transition: background-size 0.3s $ease-quad-out;
+    position: relative;
+    transition: $trans;
 
-    &:hover {
-        background-size: 0 1px;
+    &.active {
+        color: $cobalt-blue;
     }
 
-    &--white {
-        background: linear-gradient(to right, $white, $white);
-        background-position: 100% 100%;
-        background-repeat: no-repeat;
-        background-size: 100% 1px;
-        color: $white;
-        text-decoration: none;
+    @include hover {
+        color: $cobalt-blue;
     }
 }

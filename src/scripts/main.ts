@@ -13,16 +13,13 @@ gsap.config({
     force3D: false,
 });
 
-import {
-    runDefault,
-    runLayoutDefault,
-    // runComponentDefault,
-    // runModuleDefault
-} from "./utils/runner-functions";
+import { runDefault, runLayoutDefault, runComponentDefault, runModuleDefault } from "./utils/runner-functions";
 
 import { initVariables } from "./utils/variables";
 import { initLinkPrefetch } from "./utils/link-prefetch";
 import { initScroller } from "./base/scroll";
+import { initMouseOrb } from "./base/mouse-orb";
+import { initLoader } from "./base/loader";
 
 function init() {
     initGlobalScripts();
@@ -33,22 +30,25 @@ function init() {
 
 function initGlobalScripts() {
     initVariables();
+    initLoader();
+    initMouseOrb();
     initScroller();
     initLinkPrefetch();
     runDefault("grid");
 }
 
 function initLayoutScripts() {
-    // runLayoutDefault("footer");
-    runLayoutDefault("header");
+    runLayoutDefault("mbl-nav");
 }
 
 function initComponentScripts() {
-    // runComponentDefault("modal", "[data-video-src]");
+    runComponentDefault("marquee", ".marquee");
+    runComponentDefault("btn-hover", ".btn-hover");
 }
 
 function initModuleScripts() {
-    // runModuleDefault("slider", ".slider");
+    runModuleDefault("hero", ".hero");
+    runModuleDefault("region", ".region");
 }
 
 function safeInit() {
