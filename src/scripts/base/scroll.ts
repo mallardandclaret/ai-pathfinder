@@ -37,6 +37,7 @@ export function initScroller() {
 
     initJumpLinksScrollTo();
     checkInitialHash();
+    initScrollNextBtns();
 }
 
 function initJumpLinksScrollTo() {
@@ -52,6 +53,7 @@ function initJumpLinksScrollTo() {
 
                 if (target) {
                     lenis.scrollTo(target, {
+                        duration: 0.7,
                         offset: -varGutter,
                     });
                     history.pushState(null, "", targetId);
@@ -71,4 +73,23 @@ function checkInitialHash() {
             });
         }
     }
+}
+
+function initScrollNextBtns() {
+    const scrollNextBtns = document.querySelectorAll<HTMLElement>(".scroll-next");
+
+    scrollNextBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const currentSection = btn.closest<HTMLElement>("section, .section");
+            if (!currentSection) return;
+
+            const nextSection = currentSection.nextElementSibling as HTMLElement;
+            if (nextSection) {
+                lenis.scrollTo(nextSection, {
+                    duration: 0.7,
+                    offset: -varGutter,
+                });
+            }
+        });
+    });
 }
