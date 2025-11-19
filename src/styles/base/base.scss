@@ -81,6 +81,18 @@ div.grecaptcha-badge {
             display: none !important;
         }
     }
+
+    &-tablet {
+        @include above("md") {
+            display: none !important;
+        }
+    }
+
+    &-above-tablet {
+        @include below("md") {
+            display: none !important;
+        }
+    }
 }
 
 // Initially set transform for parallax images equal to parallax scale

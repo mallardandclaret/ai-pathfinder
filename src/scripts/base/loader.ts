@@ -1,13 +1,3 @@
-// import "@lottiefiles/lottie-player";
-
-// import introAnim from "../../assets/ai-pathfinder_intro_animation_2.json";
-
-// const logoPlayer = document.querySelector(".logo_animation");
-// if (logoPlayer) {
-//     // @ts-ignore - lottie-player types are loose
-//     logoPlayer.load(introAnim);
-// }
-
 const INTRO_MS_MIN = 3200;
 const INTRO_MS_MAX = 8000;
 const THRESHOLD_MS = 15 * 60 * 1000;

@@ -16,14 +16,18 @@
     @include flex(flex-start, center, rem(10), row);
     @include max-prop(gap, rem(10), vw(10));
 
+    @include hover {
+        background-color: $royal-navy;
+
+        & .marquee__wrapper {
+            animation-play-state: paused;
+        }
+    }
+
     &__wrapper {
         animation: marquee-scroll 60s linear infinite;
         @include flex(flex-start, center, rem(10), row);
         @include max-prop(gap, rem(10), vw(10));
-
-        @include hover {
-            animation-play-state: paused;
-        }
     }
 
     &__item {
