@@ -15,7 +15,7 @@ gsap.config({
 
 import { runDefault, runLayoutDefault, runComponentDefault, runModuleDefault } from "./utils/runner-functions";
 
-import { initVariables } from "./utils/variables";
+import { initVariables, prefersReducedMotion } from "./utils/variables";
 import { initLinkPrefetch } from "./utils/link-prefetch";
 import { initScroller } from "./base/scroll";
 import { initMouseOrb } from "./base/mouse-orb";
@@ -31,10 +31,13 @@ function init() {
 function initGlobalScripts() {
     initVariables();
     initLoader();
-    initMouseOrb();
     initScroller();
     initLinkPrefetch();
     runDefault("grid");
+
+    if (!prefersReducedMotion) {
+        initMouseOrb();
+    }
 }
 
 function initLayoutScripts() {

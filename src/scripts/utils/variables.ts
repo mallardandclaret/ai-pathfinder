@@ -1,6 +1,8 @@
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 
+import imagesLoaded from "imagesloaded";
+
 import { debounce } from "./functions";
 
 export const bp = {
@@ -73,4 +75,6 @@ export function initVariables() {
     calcResize(false);
     const debouncedResize = debounce(resize, 300);
     window.addEventListener("resize", debouncedResize);
+
+    imagesLoaded(document.body).on("always", () => ScrollTrigger.refresh());
 }

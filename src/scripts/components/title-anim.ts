@@ -8,7 +8,7 @@ export default function initTextAnim() {
     const main = document.querySelector<HTMLElement>("main.main");
     if (!main) return;
 
-    gsap.matchMedia().add(`(min-width: ${bp.lg}px)`, function () {
+    gsap.matchMedia().add(`(min-width: ${bp.lg}px) and (prefers-reduced-motion: no-preference)`, function () {
         initTitleAnim(main);
     });
 }
@@ -25,7 +25,7 @@ function initTitleAnim(main: HTMLElement) {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: section,
-                start: "top+=100 90%",
+                start: "top+=100 95%",
                 end: "bottom top",
                 once: true,
                 scrub: false,

@@ -11,34 +11,26 @@ import TurboConsole from "unplugin-turbo-console/vite";
 import { qrcode } from "vite-plugin-qrcode";
 import fg from "fast-glob";
 import sassDts from "vite-plugin-sass-dts";
-// import gltf from "vite-plugin-gltf";
-// import { draco, prune, textureCompress, dedup } from "@gltf-transform/functions";
-// import glsl from "vite-plugin-glsl";
-
-const THEME_NAME = "ai-pathfinder";
-
-const IS_DHQ = !!process.env.DEPLOY_PROJECT;
 const ROOT = path.join(__dirname, "src");
-const BASE = path.relative(__dirname, ROOT);
 
-const htmlFiles = Object.fromEntries(fg.sync("./*.html", { cwd: ROOT }).map(file => [path.basename(file, path.extname(file)), path.resolve(ROOT, file)]));
+const htmlFiles = Object.fromEntries(
+    fg.sync("./**/*.html", { cwd: ROOT }).map(file => [
+        file.replace(/\.html$/, ""),
+        path.resolve(ROOT, file),
+    ])
+);
 
 export default defineConfig(({ mode }) => {
     const isProd = mode === "production";
 
     return {
-        base: IS_DHQ ? `/${BASE}/../wp-content/themes/${THEME_NAME}/src/dist/` : "",
+        base: "",
         root: ROOT,
         server: {
             port: 5173,
             strictPort: false,
         },
         plugins: [
-            // gltf({
-            //     transforms: [prune(), dedup(), textureCompress({ resize: [2048, 2048] }), draco()],
-            // }),
-            // glsl({ compress: true }),
-
             TurboConsole(),
             sassDts(),
 
@@ -75,7 +67,7 @@ export default defineConfig(({ mode }) => {
             },
         },
         build: {
-            manifest: true,
+            manifest: false,
             sourcemap: isProd,
             cssCodeSplit: true,
             treeshake: true,
@@ -94,9 +86,9 @@ export default defineConfig(({ mode }) => {
                     chunkFileNames: `[name]-[hash].js`,
                 },
             },
-            optimizeDeps: {
-                include: ["gsap", "lenis", "imagesloaded"],
-            },
+        },
+        optimizeDeps: {
+            include: ["gsap", "lenis", "swiper"],
         },
     };
 });

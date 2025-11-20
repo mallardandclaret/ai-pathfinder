@@ -72,7 +72,6 @@
         "vite-plugin-stylelint": "6.0.0"
     },
     "dependencies": {
-        "@lottiefiles/lottie-player": "^2.0.12",
         "gsap": "^3.13.0",
         "imagesloaded": "^5.0.0",
         "lenis": "^1.3.15",

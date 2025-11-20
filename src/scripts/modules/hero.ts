@@ -8,7 +8,7 @@ export default function initHeroModule() {
     const heroInner = hero.querySelector(".hero__inner");
     if (!heroInner) return;
 
-    gsap.matchMedia().add(`(min-width: ${bp.md}px)`, function () {
+    gsap.matchMedia().add(`(min-width: ${bp.md}px) and (prefers-reduced-motion: no-preference)`, function () {
         gsap.fromTo(
             heroInner,
             {

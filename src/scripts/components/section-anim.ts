@@ -5,7 +5,7 @@ export default function initScrollAnim() {
     const main = document.querySelector<HTMLElement>("main.main");
     if (!main) return;
 
-    gsap.matchMedia().add(`(min-width: ${bp.lg}px)`, function () {
+    gsap.matchMedia().add(`(min-width: ${bp.lg}px) and (prefers-reduced-motion: no-preference)`, function () {
         initSectionAnim(main);
         initBgAnim(main);
 
@@ -33,7 +33,7 @@ function initSectionAnim(main: HTMLElement) {
                 opacity: 1,
                 scrollTrigger: {
                     trigger: section,
-                    start: "top+=100 90%",
+                    start: "top+=100 95%",
                     end: "bottom top",
                     once: true,
                 },
