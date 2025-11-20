@@ -9,5 +9,5 @@ git clone <repository-url>       # clone: repository-url
 cd <repository-directory>        # directory: repository-directory
 pnpm install                      # install: dependencies
 pnpm start                        # start: development-server
-pnpm build                    # build: production-bundle
+pnpm build                     # build: production-bundle
 ```
