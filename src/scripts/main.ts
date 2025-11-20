@@ -44,6 +44,8 @@ function initLayoutScripts() {
 function initComponentScripts() {
     runComponentDefault("marquee", ".marquee");
     runComponentDefault("btn-hover", ".btn-hover");
+    runComponentDefault("section-anim", "section");
+    runComponentDefault("title-anim", "h1, h2, h3");
 }
 
 function initModuleScripts() {
