@@ -14,6 +14,10 @@
         @include max-prop(margin-bottom, rem(20), vw(40));
     }
 
+    &--margin-top {
+        @include max-prop(margin-top, rem(30), vw(50));
+    }
+
     & h1,
     & .h1 {
         @include max-prop(margin-bottom, rem(10), vw(16));

@@ -48,8 +48,6 @@ function initBgAnim(main: HTMLElement) {
     const bgs = main.querySelectorAll<HTMLElement>(".bg");
 
     bgs.forEach(bg => {
-        if (checkIfPastEl(bg)) return;
-
         gsap.fromTo(
             bg,
             {

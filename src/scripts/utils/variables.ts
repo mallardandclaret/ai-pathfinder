@@ -77,4 +77,7 @@ export function initVariables() {
     window.addEventListener("resize", debouncedResize);
 
     imagesLoaded(document.body).on("always", () => ScrollTrigger.refresh());
+    setTimeout(() => {
+        ScrollTrigger.refresh();
+    }, 100);
 }

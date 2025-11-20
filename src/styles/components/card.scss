@@ -133,6 +133,16 @@
         }
     }
 
+    &--person {
+        & .card__inner {
+            justify-content: flex-start;
+        }
+
+        &--tall {
+            @include max-prop(padding-top, rem(50), vw(80));
+        }
+    }
+
     &--pr {
         & .card__inner {
             justify-content: flex-start;
@@ -161,10 +171,9 @@
     }
 
     &--tall {
-        @include max-prop(padding-top, rem(60), vw(80));
-
         & .card__inner {
-            @include max-prop(gap, rem(30), vw(30));
+            justify-content: space-between;
+            @include max-prop(gap, rem(40), vw(40));
         }
     }
 
